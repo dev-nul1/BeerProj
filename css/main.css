@@ -1,0 +1,12 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+.jumbotron {
+  background-image: url('../img/kegs.jpg') ;
+  background-repeat: no-repeat;
+  background-color:#D16002;
+  color: #fff;
+}

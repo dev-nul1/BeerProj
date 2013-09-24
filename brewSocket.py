@@ -1,9 +1,9 @@
 import sys
 import socket
 import os
-#import BrewPiUtil as util
+import BrewPiUtil as util
 
-class BrewSocket:
+class BrewPiSocket:
 	"""
 	A wrapper class for the standard socket class.
 	"""
