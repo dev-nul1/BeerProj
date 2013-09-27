@@ -1,0 +1,3 @@
+[submodule "brewSite"]
+	path = brewSite
+	url = git://github.com/dev-nul1/brewSite
