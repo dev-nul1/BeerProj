@@ -15,7 +15,6 @@ import getopt
 from pprint import pprint
 import shutil
 import threading
-import time
 import csv
 import StringIO
 import gviz_api
@@ -78,10 +77,9 @@ wwwJsonFileName = 'Z:/python/data/' + jsonFileName + '.json'
 csvFileName = 'data/' + currentBeerName + '.csv'
 
 def monitor():
-
 	ser = serial.Serial("COM3", 9600)
+	while(1): #read all lines on serial interface  , timeout=1
 
-	while(1): #read all lines on serial interface
 		line = ser.readline()
 		if(line): #line available?
 			#process line
@@ -111,7 +109,7 @@ def monitor():
 				prevDataTime = time.time() #store time of last new data for interval check
 			else:
 				print >> sys.stderr, "Error: Received	invalid	line: " + line
-		elif((time.time() - prevDataTime) >= serialRequestInterval): #if no new data has been received for serialRequestInteval seconds, request it
+		elif((time.time() - prevDataTime) <= 0): #if no new data has been received for serialRequestInteval seconds, request it
 			ser.write("r")		#	request	new	data from	arduino
 			time.sleep(1)		#   give the arduino time to respond
 			continue
@@ -120,8 +118,8 @@ def monitor():
 			print >> sys.stderr, "Error: Arduino is not responding to new data requests"
 		else:
 			break
-	"""while (1):
-		line = ser.readline()
+		"""while (1):
+			line = ser.readline()
 		if (line != ""):
 			#print line[:-1]         # strip \n
 			fields = line[:-1].split('; ');
@@ -136,14 +134,15 @@ def monitor():
 			text_file.write(line)
 			text_file.close()
 
-		# do some other things here"""
+		# do some other things here
 
-	print "Stop Monitoring"
+	print "Stop Monitoring"""
+
 
 
 
 monitor()
 
-"""while True:
+while True:
 	print ser.readline()
-time.sleep(1) """
+time.sleep(1) 

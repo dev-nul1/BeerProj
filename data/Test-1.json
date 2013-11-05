@@ -1,0 +1,1 @@
+{"rows":[{"c":[{"v":"Date(2013,10,4,13,5,31,31)"},{"v":22.46}]},{"c":[{"v":"Date(2013,10,4,13,5,31,797)"},{"v":22.95}]}],"cols":[{"type":"datetime","id":"Time","label":"Time"},{"type":"number","id":"BeerTemp","label":"Beer temperature"}]}
